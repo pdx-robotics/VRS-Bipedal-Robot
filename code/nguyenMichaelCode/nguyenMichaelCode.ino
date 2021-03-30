@@ -21,6 +21,7 @@ int rightFootPin = 13; // Assign servo connected to the right foot bracket to di
 
 void setup() {
 
+  resetPosition(); // Sets the angular positions of all servo shafts to 0.
   leftUpperLeg.attach(leftUpperLegPin); // Attach servo connected to the left upper leg bracket to its assigned digital pin.
   leftLowerLeg.attach(leftLowerLegPin); // Attach servo connected to the lower leg bracket to its assigned digital pin.
   leftFoot.attach(leftFootPin); // Attach servo connected to the left foot bracket to its assigned digital pin.
@@ -179,54 +180,60 @@ void rightFootMovementCCW(int a, int timeDelay){ // Function that allows the sha
 
 void leftLegEquilibriumPosition(){ // Function that allows the left leg of the autonomous biped to become/remain straight.
   
-  leftUpperLegMovementCW(0, 1000); // It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to reach an angular position of 0.
-  leftLowerLegMovementCW(0, 1000); // It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to reach an angular position of 0.
-  leftFootMovementCW(0, 1000); // It takes the shaft of the servo connected to the left foot bracket 10000 milliseconds to reach an angular position of 0.
+  leftUpperLegMovementCW(0, 15); // It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to reach an angular position of 0.
+  leftLowerLegMovementCW(0, 15); // It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to reach an angular position of 0.
+  leftFootMovementCW(0, 15); // It takes the shaft of the servo connected to the left foot bracket 10000 milliseconds to reach an angular position of 0.
+  leftUpperLegMovementCCW(0, 15); // It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to reach an angular position of 0.
+  leftLowerLegMovementCCW(0, 15); // It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to reach an angular position of 0.
+  leftFootMovementCCW(0, 15); // It takes the shaft of the servo connected to the left foot bracket 10000 milliseconds to reach an angular position of 0.
   
 }
 
 
 void rightLegEquilibriumPosition(){ // Function that allows the right leg of the autonomous biped to become/remain straight.
 
-  rightUpperLegMovementCW(0, 1000); // It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to reach an angular position of 0.
-  rightLowerLegMovementCW(0, 1000); // It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to reach an angular position of 0.
-  rightFootMovementCW(0, 1000); // It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to reach an angular position of 0.
+  rightUpperLegMovementCW(0, 15); // It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to reach an angular position of 0.
+  rightLowerLegMovementCW(0, 15); // It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to reach an angular position of 0.
+  rightFootMovementCW(0, 15); // It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to reach an angular position of 0.
+  rightUpperLegMovementCCW(0, 15); // It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to reach an angular position of 0.
+  rightLowerLegMovementCCW(0, 15); // It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to reach an angular position of 0.
+  rightFootMovementCCW(0, 15); // It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to reach an angular position of 0.
   
 }
 
 
 void leftLegForward(){ // Function for the left leg of the autonomous biped that allows it to take a step forward.
-
-  leftUpperLegMovementCCW(70, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to rotate 70 degrees, counter-clockwise.
-  leftLowerLegMovementCW(-60, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
-  leftFootMovementCW(-135, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left foot bracket 1000 milliseconds to rotate 135 degrees, clockwise.
+  
+  leftLowerLegMovementCW(-60, 15); // EXAMPLE: It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
+  leftUpperLegMovementCCW(70, 15); // EXAMPLE: It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to rotate 70 degrees, counter-clockwise.
+  leftFootMovementCW(-135, 15); // EXAMPLE: It takes the shaft of the servo connected to the left foot bracket 1000 milliseconds to rotate 135 degrees, clockwise.
   
 }
 
 
 void rightLegForward(){ // Function for the right leg of the autonomous biped that allows it to take a step forward.
   
-  rightUpperLegMovementCCW(70, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to rotate 70 degrees, counter-clockwise.
-  rightLowerLegMovementCW(-60, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
-  rightFootMovementCW(-135, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to rotate 135 degrees, counter-clockwise.
+  rightLowerLegMovementCW(-60, 15); // EXAMPLE: It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
+  rightUpperLegMovementCCW(70, 15); // EXAMPLE: It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to rotate 70 degrees, counter-clockwise.
+  rightFootMovementCW(-135, 15); // EXAMPLE: It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to rotate 135 degrees, counter-clockwise.
   
 }
 
 
 void leftLegBackward(){ // Function for the left leg of the autonomous biped that allows it to take a step backward.
 
-  leftUpperLegMovementCW(-70, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to rotate 70 degrees, clockwise.
-  leftLowerLegMovementCW(-60, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
-  leftFootMovementCCW(50, 1000); // EXAMPLE: It takes the shaft of the servo connected to the left foot bracket 1000 milliseconds to rotate 50 degrees, counter-clockwise.
+  leftUpperLegMovementCW(-70, 15); // EXAMPLE: It takes the shaft of the servo connected to the left upper leg bracket 1000 milliseconds to rotate 70 degrees, clockwise.
+  leftLowerLegMovementCW(-60, 15); // EXAMPLE: It takes the shaft of the servo connected to the left lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
+  leftFootMovementCCW(50, 15); // EXAMPLE: It takes the shaft of the servo connected to the left foot bracket 1000 milliseconds to rotate 50 degrees, counter-clockwise.
   
 }
 
 
 void rightLegBackward(){ // Function for the right leg of the autonomous biped that allows it to take a step backward.
 
-  rightUpperLegMovementCW(-70, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to rotate 70 degrees, clockwise.
-  rightLowerLegMovementCW(-60, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
-  rightFootMovementCCW(50, 1000); // EXAMPLE: It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to roate 50 degrees, counter-clockwise.
+  rightUpperLegMovementCW(-70, 15); // EXAMPLE: It takes the shaft of the servo connected to the right upper leg bracket 1000 milliseconds to rotate 70 degrees, clockwise.
+  rightLowerLegMovementCW(-60, 15); // EXAMPLE: It takes the shaft of the servo connected to the right lower leg bracket 1000 milliseconds to rotate 60 degrees, clockwise.
+  rightFootMovementCCW(50, 15); // EXAMPLE: It takes the shaft of the servo connected to the right foot bracket 1000 milliseconds to roate 50 degrees, counter-clockwise.
   
 }
 
@@ -240,6 +247,14 @@ void walkingSequence() { // Function that allows the autonomous biped to walk fo
   rightLegEquilibriumPosition(); // When the autonomous biped takes another step, its right leg returns to equilibrium position, then its left leg moves forward while its right leg simultaneously moves backward.
   leftLegForward();
   rightLegBackward();
+  
+}
+
+
+void resetPosition(){ // Function that reset the angular position of all servo shafts.
+
+  leftLegEquilibriumPosition();
+  rightLegEquilibriumPosition();
   
 }
 
