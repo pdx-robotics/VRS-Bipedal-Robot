@@ -1,21 +1,58 @@
+#include <Servo.h>
+
+Servo rightLegFoot;
+Servo rightLegLower;
+Servo rightLegUpper;
+Servo leftLegFoot;
+Servo leftLegLower;
+Servo leftLegUpper;
+
 float L1 = 50.0; // Length of the upper leg in millimeters.
 float L2 = 68.79707; // Length of the lower leg in millimeters.
 
 
-float angle_a_forward(float x, float z){
-  float a;
-  a = 90 - acos( x/ ( sq(x)+sq(z) )    )*(180/3.14) + atan(x/z)*(180/3.14);
-  return a;
+void rightLegMovement(){
+  rightLegUpper.write(90);
+  delay(100);
+  rightLegLower.write(-90);
+  delay(100);
+  rightLegUpper.write(0);
+  delay(100);
+  rightLegLower.write(0);
+  delay(100);
+}
+
+void equilibriumPostion(){
+  // Function resets servo shaft positions to 0.
+    int equilibriumPos = 90;
+    rightLegFoot.write(equilibriumPos);
+    rightLegLower.write(equilibriumPos);
+    rightLegUpper.write(equilibriumPos);
+    leftLegFoot.write(equilibriumPos);
+    leftLegLower.write(equilibriumPos);
+    leftLegUpper.write(equilibriumPos);
+}
+
+
+void servoSetup(){
+  // Function assigns a digital pin to each servo motor.
+    rightLegFoot.attach(5);
+    rightLegLower.attach(4);
+    rightLegUpper.attach(3);
+    leftLegFoot.attach(0);
+    leftLegLower.attach(1);
+    leftLegUpper.attach(2);
 }
 
 
 void setup() {
-
   Serial.begin(9600);
+  servoSetup();
 
-  float a = angle_a_forward(20.0, -15.0);
-
-  Serial.println(a);
 }
 
-void loop() {}
+void loop() {
+   // rightLegMovement();
+   rightLegLower.write(90);
+   rightLegLower.write(0);
+    }
